@@ -27,6 +27,10 @@ async def cmd_info(message: types.Message):
         parse_mode="HTML"
     )
 
+@dp.message(lambda msg: msg.text and msg.text.lower() in ['salom', 'assalom', 'assalomu alaykum'])
+async def salom_txt(message: types.Message):
+    await message.reply("🤝 Vaalaykum assalom! Qalaysiz?")
+
 @dp.message()
 async def echo(message: types.Message):
     await message.copy_to(chat_id=message.chat.id)
