@@ -1,6 +1,6 @@
 # echo plus bot
 
-from aiogram import Bot, Dispatcher, types
+from aiogram import Bot, Dispatcher, types, F
 from aiogram.filters import Command
 import asyncio
 
@@ -34,9 +34,20 @@ async def cmd_weather(message: types.Message):
 async def salom_txt(message: types.Message):
     await message.reply("✋🏻Vaalaykum assalom! Qalaysiz?")
 
-@dp.message(lambda msg: msg.text and msg.text.lower() in ['raxmat', 'thanks', 'thank you'])
+@dp.message(lambda msg: msg.text and msg.text.lower() in ['raxmat','rahmat', 'thanks', 'thank you'])
 async def raxmat_txt(message: types.Message):
     await message.reply("Arzimaydi🤝")
+
+@dp.message(F.text.regexp(r'^\d+$'))
+async def calculate_handler(message: types.Message):
+
+    number = int(message.text)
+    result = number * 2
+    await message.reply(
+        f"🔢 Hisoblash:\n"
+        f"✖️ {number} × 2 = <b>{result}</b>",
+        parse_mode="HTML"
+    )
 
 @dp.message()
 async def echo(message: types.Message):
