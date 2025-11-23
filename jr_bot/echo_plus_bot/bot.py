@@ -4,7 +4,7 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.filters import Command
 import asyncio
 
-BOT_TOKEN = "8470618802:AAGK1g0j4j4PI3KO3DVjR9nk6LEIbK6eZ5k"
+BOT_TOKEN = "TOKEN"
 bot = Bot(token=BOT_TOKEN)
 
 dp = Dispatcher()
@@ -12,6 +12,10 @@ dp = Dispatcher()
 @dp.message(Command('start'))
 async def start(message: types.Message):
     await message.answer("Assalomu alekum!. Men echo botman")
+
+@dp.message(Command('help'))
+async def help(message: types.Message):
+    await message.answer("Men echo botman. \nSizga yuborgan har qanday xabaringizni qaytaraman.\n📝 Komandalar: \n/start - Botni qayta ishga tushirish \n/help - Yordam")
 
 @dp.message()
 async def echo(message: types.Message):
