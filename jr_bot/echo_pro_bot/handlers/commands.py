@@ -13,7 +13,7 @@ async def cmd_start(message: Message):
 
 @router.message(Command('help'))
 async def cmd_help(message: Message):
-    await message.answer("Komandalar: \n/start - Botni qayta ishga tushirish \n/info - ma'lumot ") #\n/weather - havo haqida
+    await message.answer("Komandalar: \n/start - Botni qayta ishga tushirish \n/info - ma'lumot \n/help - yordam") #\n/weather - havo haqida
 
 @router.message(Command('info'))
 async def cmd_info(message: Message):
