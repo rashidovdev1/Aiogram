@@ -8,3 +8,6 @@ router = Router()
 async def cmd_start(message: Message):
     await message.answer('Salom!, Men echo botman')
 
+@router.message(Command('help'))
+async def cmd_help(message: Message):
+    await message.answer('/start - Botni ishga tushirish \n/help - Yordam')
